@@ -3,27 +3,11 @@
     <div>
       <logo />
       <h1 class="title">
-        Sobat Teknologi 
+        barang.id 
       </h1>
       <h2 class="subtitle">
-        This is Sobat Teknologi 
+        This is barang.id 
       </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
     </div>
   </div>
 </template>
@@ -38,7 +22,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -66,7 +50,5 @@ export default {
   padding-bottom: 15px;
 }
 
-.links {
-  padding-top: 15px;
-}
+
 </style>

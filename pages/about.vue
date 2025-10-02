@@ -3,10 +3,10 @@
     <div>
       
       <h1 class="title">
-        About Sobat Teknologi
+        About Barang.id
       </h1>
       <h2 class="description">
-        Sobat Teknologi is a technology blog that provides the latest news and tutorials on web development, programming, and software engineering.
+        Barang.id is a platform that provides comprehensive information about various products, helping users make informed purchasing decisions.
       </h2>
     </div>
   </div>
@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .container {
   margin: 0 auto;
   min-height: 100vh;
