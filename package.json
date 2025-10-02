@@ -1,0 +1,20 @@
+{
+  "name": "Nuxt2Expl",
+  "version": "1.0.0",
+  "description": "(Nuxt 2 Sobat Teknologi exploration)",
+  "author": "Mosses Aryo Bimo",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "axios": "^1.12.2",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.14.0"
+  }
+}
