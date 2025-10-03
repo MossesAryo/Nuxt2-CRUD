@@ -183,14 +183,14 @@ export default {
       }
     }
 
-    const closeForm = () => {
-      showForm.value = false
-    }
+      const closeForm = () => {
+        showForm.value = false
+      }
 
-    const openDelete = (item) => {
-      selected.value = item
-      showDelete.value = true
-    }
+      const openDelete = (item) => {
+        selected.value = item
+        showDelete.value = true
+      }
 
     const deleteBarang = async () => {
       try {
@@ -219,168 +219,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.container {
-  max-width: 1200px;
-  margin: 100px auto 40px auto;
-  padding: 32px;
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
-}
-
-h1 {
-  font-size: 24px;
-  font-weight: bold;
-  color: #1f2937;
-}
-
-.btn-create {
-  padding: 8px 16px;
-  background: #10b981;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.btn-create:hover {
-  background: #059669;
-}
-
-.info, .empty {
-  padding: 24px;
-  text-align: center;
-  color: #6b7280;
-}
-
-.error {
-  padding: 12px;
-  background: #fee2e2;
-  color: #dc2626;
-  border-radius: 6px;
-  border: 1px solid #fecaca;
-}
-
-.table-wrapper {
-  overflow-x: auto;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-thead {
-  background: #f9fafb;
-}
-
-th {
-  padding: 12px 16px;
-  text-align: left;
-  font-weight: 600;
-  color: #374151;
-  border-bottom: 1px solid #e5e7eb;
-  font-size: 14px;
-}
-
-td {
-  padding: 12px 16px;
-  border-bottom: 1px solid #f3f4f6;
-  color: #4b5563;
-  font-size: 14px;
-}
-
-.table-row-hover:hover {
-  background: #f9fafb;
-}
-
-.btn-edit,
-.btn-delete {
-  padding: 6px 12px;
-  margin-right: 8px;
-  border: none;
-  border-radius: 4px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.btn-edit {
-  background: #3b82f6;
-  color: white;
-}
-
-.btn-edit:hover {
-  background: #2563eb;
-}
-
-.btn-delete {
-  background: #ef4444;
-  color: white;
-}
-
-.btn-delete:hover {
-  background: #dc2626;
-}
-
-.form-container {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.form-group label {
-  display: block;
-  font-size: 14px;
-  font-weight: 500;
-  color: #374151;
-  margin-bottom: 6px;
-}
-
-.form-group input,
-.form-group select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-.form-group input:focus,
-.form-group select:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-}
-
-.actions {
-  padding-top: 16px;
-  text-align: right;
-}
-
-.btn-save {
-  padding: 8px 16px;
-  background: #3b82f6;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.btn-save:hover {
-  background: #2563eb;
-}
-</style>
+<style scoped src="~/assets/css/barang.css"></style>
