@@ -62,13 +62,14 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
-import axios from 'axios'
+import { ref, onMounted, getCurrentInstance } from 'vue'
 import Modal from '~/components/Modal.vue'
 
 export default {
   components: { Modal },
   setup() {
+    const { proxy } = getCurrentInstance()
+
     const kategori = ref([])
     const loading = ref(true)
     const error = ref(null)
@@ -82,7 +83,7 @@ export default {
 
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/kategori')
+        const res = await proxy.$api.get('/kategori')
         kategori.value = res.data.data.kategori
       } catch (err) {
         error.value = 'Gagal mengambil data kategori: ' + err.message
@@ -105,9 +106,9 @@ export default {
 
     const saveKategori = async () => {
       if (formMode.value === 'create') {
-        await axios.post('http://localhost:8000/kategori/store', form.value)
+        await proxy.$api.post('/kategori/store', form.value)
       } else {
-        await axios.put(`http://localhost:8000/kategori/update/${form.value.id_kategori}`, form.value) 
+        await proxy.$api.put(`/kategori/update/${form.value.id_kategori}`, form.value)
       }
       closeForm()
       fetchData()
@@ -123,7 +124,7 @@ export default {
     }
 
     const deleteKategori = async () => {
-      await axios.delete(`http://localhost:8000/kategori/delete/${selected.value.id_kategori}`)
+      await proxy.$api.delete(`/kategori/delete/${selected.value.id_kategori}`)
       showDelete.value = false
       fetchData()
     }
@@ -138,6 +139,7 @@ export default {
   }
 }
 </script>
+
 
 <style scoped src="~/assets/css/kategori.css">
 

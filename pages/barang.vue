@@ -90,13 +90,16 @@
 </template>
 
 <script>
+import { getCurrentInstance } from 'vue'
 import { ref, onMounted } from 'vue'
-import axios from 'axios'
 import Modal from '~/components/Modal.vue'
+
 
 export default {
   components: { Modal },
   setup() {
+    const { proxy } = getCurrentInstance()
+
     const barang = ref([])
     const kategori = ref([])
     const loading = ref(true)
@@ -124,7 +127,7 @@ export default {
 
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/barang')
+        const res = await proxy.$api.get('/barang')
         barang.value = res.data.data.barang
       } catch (err) {
         error.value = 'Gagal mengambil data barang: ' + err.message
@@ -135,11 +138,13 @@ export default {
 
     const fetchKategori = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/kategori')
+        const res = await proxy.$api.get('/kategori')
         kategori.value = res.data.data.kategori
       } catch (err) {
-        console.error('Gagal mengambil data kategori: ' + err.message)
-      } 
+        error.value = 'Gagal mengambil data kategori: ' + err.message
+      } finally {
+        loading.value = false
+      }
     }
 
     const openCreate = () => {
@@ -171,9 +176,9 @@ export default {
     const saveBarang = async () => {
       try {
         if (formMode.value === 'create') {
-          await axios.post('http://localhost:8000/barang/store', form.value)
+          await proxy.$api.post('/barang/store', form.value)
         } else {
-          await axios.put(`http://localhost:8000/barang/update/${form.value.id_barang}`, form.value)
+          await proxy.$api.put(`/barang/update/${form.value.id_barang}`, form.value)
         }
         closeForm()
         fetchData()
@@ -194,7 +199,7 @@ export default {
 
     const deleteBarang = async () => {
       try {
-        await axios.delete(`http://localhost:8000/barang/delete/${selected.value.id_barang}`)
+        await proxy.$api.delete(`/barang/delete/${selected.value.id_barang}`)
         showDelete.value = false
         fetchData()
       } catch (err) {
